@@ -1,5 +1,5 @@
 r"""
-    AlphavantagePrice.py defines module of python class(es): 'Price', 'StockDataAnalyzer'
+    AlphavantagePrice.py defines module of python class(es): 'Price', 'PriceExtended' and 'StockDataAnalyzer.'
     that provides methods to make access convenient to the Alphavantage service. Categories of services offered are:
     (1) Core Time Series Stock Data APIs,
     (2) Alpha Intelligence™,

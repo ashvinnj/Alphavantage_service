@@ -9,7 +9,7 @@
 <tr class="heading-text decor">
 <td class="title">&nbsp;<br><strong class="title">AlphavantagePrice</strong></td>
 <td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cashvi%5Cdocuments%5Cnyu_python%5Cpython_data_apy%5Csession_03_working_files%5Cinclass_exercises%5Calphavantage_service%5Calphavantageprice.py">c:\users\ashvi\documents\nyu_python\python_data_apy\session_03_working_files\inclass_exercises\alphavantage_service\alphavantageprice.py</a></td></tr></table>
-    <p><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;AlphavantagePrice.py&nbsp;defines&nbsp;module&nbsp;of&nbsp;python&nbsp;class(es):&nbsp;'<a href="#Price">Price</a>',&nbsp;'<a href="#StockDataAnalyzer">StockDataAnalyzer</a>'<br>
+    <p><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;AlphavantagePrice.py&nbsp;defines&nbsp;module&nbsp;of&nbsp;python&nbsp;class(es):&nbsp;'<a href="#Price">Price</a>',&nbsp;'<a href="#PriceExtended">PriceExtended</a>'&nbsp;and&nbsp;'<a href="#StockDataAnalyzer">StockDataAnalyzer</a>.'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;provides&nbsp;methods&nbsp;to&nbsp;make&nbsp;access&nbsp;convenient&nbsp;to&nbsp;the&nbsp;Alphavantage&nbsp;service.&nbsp;Categories&nbsp;of&nbsp;services&nbsp;offered&nbsp;are:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(1)&nbsp;Core&nbsp;Time&nbsp;Series&nbsp;Stock&nbsp;Data&nbsp;APIs,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(2)&nbsp;Alpha&nbsp;Intelligence™,<br>
@@ -17,10 +17,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;(4)&nbsp;Physical&nbsp;and&nbsp;Digital/Crypto&nbsp;Currencies&nbsp;(e.g.,&nbsp;Bitcoin),<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(5)&nbsp;Commodities,&nbsp;(6)&nbsp;Economic&nbsp;Indicators,&nbsp;and<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(7)&nbsp;Technical&nbsp;Indicators.<br>
-
 &nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;script&nbsp;is&nbsp;build&nbsp;to&nbsp;get&nbsp;exposure&nbsp;to&nbsp;learn&nbsp;web&nbsp;APIs&nbsp;in&nbsp;Pyton.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;We&nbsp;will&nbsp;explore&nbsp;intraday&nbsp;Time&nbsp;Series&nbsp;Stock&nbsp;Data&nbsp;APIs<br>
-&nbsp;&nbsp;&nbsp;&nbsp;e.g.&nbsp;url:&nbsp;<a href="https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&amp;symbol=IBM&amp;interval=5min&amp;outputsize=full&amp;apikey=demo">https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&amp;symbol=IBM&amp;interval=5min&amp;outputsize=full&amp;apikey=demo</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;e.g.&nbsp;url:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&amp;symbol=IBM&amp;interval=5min&amp;outputsize=full&amp;apikey=demo">https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&amp;symbol=IBM&amp;interval=5min&amp;outputsize=full&amp;apikey=demo</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;also&nbsp;Tracking&nbsp;search&nbsp;utilities<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Sample&nbsp;Json:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;{<br>
@@ -66,6 +66,12 @@
     
 <tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#Exception">builtins.Exception</a>(<a href="builtins.html#BaseException">builtins.BaseException</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="AlphavantagePrice.html#NoDataException">NoDataException</a>
+</dt></dl>
+</dd>
 <dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
 </dt><dd>
 <dl>
@@ -82,23 +88,105 @@
  <p>
 <table class="section">
 <tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="NoDataException">class <strong>NoDataException</strong></a>(<a href="builtins.html#Exception">builtins.Exception</a>)</td></tr>
+    
+<tr><td class="decor title-decor"><span class="code">&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="AlphavantagePrice.html#NoDataException">NoDataException</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="NoDataException-__init__"><strong>__init__</strong></a>(self, /, *args, **kwargs)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Static methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="NoDataException-__new__"><strong>__new__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="NoDataException-__delattr__"><strong>__delattr__</strong></a>(self, name, /)</dt><dd><span class="code">Implement&nbsp;delattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="NoDataException-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="NoDataException-__reduce__"><strong>__reduce__</strong></a>(...)</dt><dd><span class="code">Helper&nbsp;for&nbsp;pickle.</span></dd></dl>
+
+<dl><dt><a name="NoDataException-__repr__"><strong>__repr__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<dl><dt><a name="NoDataException-__setattr__"><strong>__setattr__</strong></a>(self, name, value, /)</dt><dd><span class="code">Implement&nbsp;setattr(self,&nbsp;name,&nbsp;value).</span></dd></dl>
+
+<dl><dt><a name="NoDataException-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NoDataException-__str__"><strong>__str__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;str(self).</span></dd></dl>
+
+<dl><dt><a name="NoDataException-add_note"><strong>add_note</strong></a>(...)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#NoDataException-add_note">add_note</a>(note)&nbsp;--<br>
+add&nbsp;a&nbsp;note&nbsp;to&nbsp;the&nbsp;exception</span></dd></dl>
+
+<dl><dt><a name="NoDataException-with_traceback"><strong>with_traceback</strong></a>(...)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#NoDataException-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><span class="code">exception&nbsp;cause</span></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><span class="code">exception&nbsp;context</span></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__suppress_context__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><a name="Price">class <strong>Price</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
 <td class="decor title-decor" colspan=2><span class="code"><a href="#Price">Price</a>(in_symbol,&nbsp;minutes,&nbsp;apikey,&nbsp;extended_hours=False)<br>
 &nbsp;<br>
-build&nbsp;instance&nbsp;of&nbsp;a&nbsp;<a href="#Price">Price</a>&nbsp;class&nbsp;is&nbsp;defined&nbsp;to&nbsp;represent&nbsp;price&nbsp;data&nbsp;for&nbsp;a&nbsp;given&nbsp;stock&nbsp;symbol<br>
-at&nbsp;a&nbsp;specified&nbsp;time&nbsp;interval&nbsp;(in&nbsp;minutes).<br>&nbsp;</span></td></tr>
+AlphavantagePrice.py&nbsp;defines&nbsp;a&nbsp;module&nbsp;containing&nbsp;Python&nbsp;classes:&nbsp;'<a href="#Price">Price</a>',&nbsp;'<a href="#PriceExtended">PriceExtended</a>'&nbsp;and&nbsp;'<a href="#StockDataAnalyzer">StockDataAnalyzer</a>.'<br>
+These&nbsp;classes&nbsp;provide&nbsp;methods&nbsp;to&nbsp;conveniently&nbsp;access&nbsp;Alphavantage&nbsp;service,&nbsp;particularly&nbsp;for&nbsp;intraday<br>
+Time&nbsp;Series&nbsp;Stock&nbsp;Data&nbsp;APIs.&nbsp;These&nbsp;APIs&nbsp;offer&nbsp;access&nbsp;to&nbsp;a&nbsp;wide&nbsp;range&nbsp;of&nbsp;financial&nbsp;data&nbsp;for&nbsp;stocks.<br>
+Further&nbsp;extension&nbsp;possible&nbsp;to&nbsp;access&nbsp;cryptocurrencies,&nbsp;commodities,&nbsp;and&nbsp;more.<br>
+&nbsp;<br>
+This&nbsp;module&nbsp;allows&nbsp;users&nbsp;to&nbsp;access&nbsp;and&nbsp;analyze&nbsp;financial&nbsp;data,&nbsp;retrieve&nbsp;metadata,&nbsp;and&nbsp;perform<br>
+various&nbsp;calculations&nbsp;and&nbsp;visualizations.<br>
+&nbsp;<br>
+Author:&nbsp;Ashvin&nbsp;Patel<br>
+Date:&nbsp;10-15-2023<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
 <td class="singlecolumn">Methods defined here:<br>
-<dl><dt><a name="Price-__init__"><strong>__init__</strong></a>(self, in_symbol, minutes, apikey, extended_hours=False)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+<dl><dt><a name="Price-__init__"><strong>__init__</strong></a>(self, in_symbol, minutes, apikey, extended_hours=False)</dt><dd><span class="code">Initialize&nbsp;a&nbsp;<a href="#Price">Price</a>&nbsp;instance.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;in_symbol&nbsp;(str):&nbsp;The&nbsp;stock&nbsp;symbol&nbsp;of&nbsp;interest.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;minutes&nbsp;(int):&nbsp;The&nbsp;time&nbsp;interval&nbsp;in&nbsp;minutes&nbsp;for&nbsp;data&nbsp;retrieval.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;apikey&nbsp;(str):&nbsp;Your&nbsp;API&nbsp;key&nbsp;for&nbsp;accessing&nbsp;financial&nbsp;data&nbsp;(hash&nbsp;key&nbsp;version&nbsp;used)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;extended_hours&nbsp;(bool,&nbsp;optional):&nbsp;Whether&nbsp;to&nbsp;include&nbsp;extended&nbsp;hours&nbsp;data.&nbsp;Default&nbsp;is&nbsp;False.</span></dd></dl>
 
 <dl><dt><a name="Price-close"><strong>close</strong></a>(self)</dt><dd><span class="code">Retrieve&nbsp;the&nbsp;stock's&nbsp;closing&nbsp;price&nbsp;for&nbsp;the&nbsp;last&nbsp;refreshed&nbsp;timestamp.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;closing&nbsp;price,&nbsp;or&nbsp;None&nbsp;if&nbsp;not&nbsp;found.</span></dd></dl>
 
-<dl><dt><a name="Price-download_data"><strong>download_data</strong></a>(self)</dt><dd><span class="code">connect&nbsp;with&nbsp;Apivantage&nbsp;service&nbsp;and&nbsp;retrieve&nbsp;Json&nbsp;for&nbsp;given&nbsp;ticker&nbsp;symbol<br>
+<dl><dt><a name="Price-download_data"><strong>download_data</strong></a>(self)</dt><dd><span class="code">Download&nbsp;data&nbsp;from&nbsp;Alphavantage&nbsp;API&nbsp;and&nbsp;parse&nbsp;it&nbsp;into&nbsp;JSON&nbsp;format.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dict:&nbsp;A&nbsp;dictionary&nbsp;containing&nbsp;the&nbsp;JSON&nbsp;data&nbsp;retrieved&nbsp;from&nbsp;the&nbsp;Alphavantage&nbsp;API.<br>
+&nbsp;<br>
+connects&nbsp;with&nbsp;Apivantage&nbsp;service&nbsp;and&nbsp;retrieves&nbsp;json&nbsp;data&nbsp;for&nbsp;given&nbsp;ticker&nbsp;symbol<br>
 The&nbsp;download_data&nbsp;method&nbsp;sends&nbsp;an&nbsp;HTTP&nbsp;GET&nbsp;request&nbsp;to&nbsp;the&nbsp;Alpha&nbsp;Vantage&nbsp;API&nbsp;to&nbsp;retrieve&nbsp;intraday&nbsp;price&nbsp;data<br>
 for&nbsp;the&nbsp;specified&nbsp;stock&nbsp;symbol.&nbsp;It&nbsp;specifies&nbsp;various&nbsp;parameters&nbsp;such&nbsp;as&nbsp;the&nbsp;symbol,&nbsp;time&nbsp;interval,<br>
 extended&nbsp;hours,&nbsp;and&nbsp;API&nbsp;key.&nbsp;The&nbsp;response&nbsp;from&nbsp;the&nbsp;API&nbsp;is&nbsp;expected&nbsp;to&nbsp;be&nbsp;in&nbsp;JSON&nbsp;format,<br>
@@ -118,20 +206,26 @@ Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;dict&nbsp;or&nbsp;None:&nbsp;Data&nbsp;for&nbsp;the&nbsp;specified&nbsp;timestamp&nbsp;returned&nbsp;as&nbsp;dict&nbsp;<a href="builtins.html#object">object</a>,<br>
 &nbsp;&nbsp;&nbsp;or&nbsp;None&nbsp;if&nbsp;the&nbsp;timestamp&nbsp;is&nbsp;not&nbsp;found&nbsp;in&nbsp;the&nbsp;data.</span></dd></dl>
 
-<dl><dt><a name="Price-get_interval"><strong>get_interval</strong></a>(self)</dt><dd><span class="code">retrieved&nbsp;the&nbsp;delta&nbsp;of&nbsp;APIservice&nbsp;call<br>
-Retrieve&nbsp;the&nbsp;time&nbsp;interval&nbsp;of&nbsp;the&nbsp;data&nbsp;retrieved&nbsp;from&nbsp;the&nbsp;API.<br>
+<dl><dt><a name="Price-get_interval"><strong>get_interval</strong></a>(self)</dt><dd><span class="code">Retrieve&nbsp;the&nbsp;time&nbsp;interval&nbsp;of&nbsp;the&nbsp;data&nbsp;retrieved&nbsp;from&nbsp;the&nbsp;API.<br>
 &nbsp;<br>
 Returns:<br>
-str:&nbsp;The&nbsp;time&nbsp;interval&nbsp;(e.g.,&nbsp;"60min").</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;time&nbsp;interval&nbsp;(e.g.,&nbsp;"60min").</span></dd></dl>
 
-<dl><dt><a name="Price-get_json"><strong>get_json</strong></a>(self)</dt><dd><span class="code">helper&nbsp;method&nbsp;to&nbsp;review&nbsp;json&nbsp;data&nbsp;retrieved&nbsp;and&nbsp;for&nbsp;debugging</span></dd></dl>
+<dl><dt><a name="Price-get_json"><strong>get_json</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;JSON&nbsp;data&nbsp;in&nbsp;a&nbsp;pretty-printed&nbsp;format&nbsp;for&nbsp;debugging.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;JSON&nbsp;data&nbsp;as&nbsp;a&nbsp;well-formatted&nbsp;string.</span></dd></dl>
 
 <dl><dt><a name="Price-get_last_refreshed"><strong>get_last_refreshed</strong></a>(self)</dt><dd><span class="code">Retrieve&nbsp;the&nbsp;date&nbsp;and&nbsp;time&nbsp;when&nbsp;the&nbsp;service&nbsp;was&nbsp;last&nbsp;consulted.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;date&nbsp;and&nbsp;time&nbsp;(e.g.,&nbsp;"2023-11-03&nbsp;15:00:00").</span></dd></dl>
 
-<dl><dt><a name="Price-get_metadata"><strong>get_metadata</strong></a>(self)</dt><dd><span class="code">retrieve&nbsp;metadata&nbsp;from&nbsp;Json<br>
+<dl><dt><a name="Price-get_metadata"><strong>get_metadata</strong></a>(self)</dt><dd><span class="code">Retrieve&nbsp;metadata&nbsp;information&nbsp;from&nbsp;the&nbsp;JSON&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dict:&nbsp;A&nbsp;dictionary&nbsp;containing&nbsp;metadata&nbsp;information&nbsp;from&nbsp;the&nbsp;JSON&nbsp;data.<br>
+&nbsp;<br>
 The&nbsp;get_metadata&nbsp;method&nbsp;extracts&nbsp;the&nbsp;"metaData"&nbsp;section&nbsp;from&nbsp;the&nbsp;JSON&nbsp;response,<br>
 which&nbsp;contains&nbsp;information&nbsp;about&nbsp;the&nbsp;stock&nbsp;data.&nbsp;This&nbsp;"metadata"&nbsp;section&nbsp;is&nbsp;a&nbsp;dictionary<br>
 within&nbsp;the&nbsp;larger&nbsp;JSON&nbsp;<a href="builtins.html#object">object</a>.&nbsp;metadata&nbsp;=&nbsp;price_instance.<a href="#Price-get_metadata">get_metadata</a>()&nbsp;then<br>
@@ -161,14 +255,6 @@ Returns:<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;opening&nbsp;price,&nbsp;or&nbsp;None&nbsp;if&nbsp;not&nbsp;found.</span></dd></dl>
-
-<dl><dt><a name="Price-series"><strong>series</strong></a>(self, parameter)</dt><dd><span class="code">Retrieve&nbsp;historical&nbsp;series&nbsp;data&nbsp;for&nbsp;a&nbsp;given&nbsp;attribute&nbsp;(parameter).<br>
-&nbsp;<br>
-Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;parameter&nbsp;(str):&nbsp;The&nbsp;attribute&nbsp;(e.g.,&nbsp;"1.&nbsp;open",&nbsp;"2.&nbsp;high")&nbsp;for&nbsp;which&nbsp;to&nbsp;retrieve&nbsp;historical&nbsp;data.<br>
-&nbsp;<br>
-Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;list:&nbsp;A&nbsp;list&nbsp;of&nbsp;historical&nbsp;data&nbsp;values&nbsp;for&nbsp;the&nbsp;specified&nbsp;attribute,&nbsp;or&nbsp;an&nbsp;empty&nbsp;list&nbsp;if&nbsp;no&nbsp;data&nbsp;is&nbsp;found.</span></dd></dl>
 
 <dl><dt><a name="Price-volume"><strong>volume</strong></a>(self)</dt><dd><span class="code">Retrieve&nbsp;the&nbsp;volume&nbsp;data&nbsp;for&nbsp;the&nbsp;last&nbsp;refreshed&nbsp;timestamp.<br>
 &nbsp;<br>
@@ -207,7 +293,7 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;interval&nbsp;(int):&nbsp;The&nbsp;time&nbsp;interval&nbsp;in&nbsp;minutes&nbsp;for&nbsp;data&nbsp;retrieval.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;api_key&nbsp;(str):&nbsp;Your&nbsp;API&nbsp;key&nbsp;for&nbsp;accessing&nbsp;financial&nbsp;data.</span></dd></dl>
 
-<dl><dt><a name="PriceExtended-get_price_info"><strong>get_price_info</strong></a>(self)</dt><dd><span class="code">Get&nbsp;detailed&nbsp;price&nbsp;information.<br>
+<dl><dt><a name="PriceExtended-get_ticker_symbol_info"><strong>get_ticker_symbol_info</strong></a>(self)</dt><dd><span class="code">Get&nbsp;detailed&nbsp;price&nbsp;information.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;dict:&nbsp;A&nbsp;dictionary&nbsp;containing&nbsp;detailed&nbsp;price&nbsp;information&nbsp;including&nbsp;symbol,&nbsp;last&nbsp;refreshed&nbsp;timestamp,<br>
@@ -228,7 +314,12 @@ Methods inherited from <a href="AlphavantagePrice.html#Price">Price</a>:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;closing&nbsp;price,&nbsp;or&nbsp;None&nbsp;if&nbsp;not&nbsp;found.</span></dd></dl>
 
-<dl><dt><a name="PriceExtended-download_data"><strong>download_data</strong></a>(self)</dt><dd><span class="code">connect&nbsp;with&nbsp;Apivantage&nbsp;service&nbsp;and&nbsp;retrieve&nbsp;Json&nbsp;for&nbsp;given&nbsp;ticker&nbsp;symbol<br>
+<dl><dt><a name="PriceExtended-download_data"><strong>download_data</strong></a>(self)</dt><dd><span class="code">Download&nbsp;data&nbsp;from&nbsp;Alphavantage&nbsp;API&nbsp;and&nbsp;parse&nbsp;it&nbsp;into&nbsp;JSON&nbsp;format.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dict:&nbsp;A&nbsp;dictionary&nbsp;containing&nbsp;the&nbsp;JSON&nbsp;data&nbsp;retrieved&nbsp;from&nbsp;the&nbsp;Alphavantage&nbsp;API.<br>
+&nbsp;<br>
+connects&nbsp;with&nbsp;Apivantage&nbsp;service&nbsp;and&nbsp;retrieves&nbsp;json&nbsp;data&nbsp;for&nbsp;given&nbsp;ticker&nbsp;symbol<br>
 The&nbsp;download_data&nbsp;method&nbsp;sends&nbsp;an&nbsp;HTTP&nbsp;GET&nbsp;request&nbsp;to&nbsp;the&nbsp;Alpha&nbsp;Vantage&nbsp;API&nbsp;to&nbsp;retrieve&nbsp;intraday&nbsp;price&nbsp;data<br>
 for&nbsp;the&nbsp;specified&nbsp;stock&nbsp;symbol.&nbsp;It&nbsp;specifies&nbsp;various&nbsp;parameters&nbsp;such&nbsp;as&nbsp;the&nbsp;symbol,&nbsp;time&nbsp;interval,<br>
 extended&nbsp;hours,&nbsp;and&nbsp;API&nbsp;key.&nbsp;The&nbsp;response&nbsp;from&nbsp;the&nbsp;API&nbsp;is&nbsp;expected&nbsp;to&nbsp;be&nbsp;in&nbsp;JSON&nbsp;format,<br>
@@ -248,20 +339,26 @@ Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;dict&nbsp;or&nbsp;None:&nbsp;Data&nbsp;for&nbsp;the&nbsp;specified&nbsp;timestamp&nbsp;returned&nbsp;as&nbsp;dict&nbsp;<a href="builtins.html#object">object</a>,<br>
 &nbsp;&nbsp;&nbsp;or&nbsp;None&nbsp;if&nbsp;the&nbsp;timestamp&nbsp;is&nbsp;not&nbsp;found&nbsp;in&nbsp;the&nbsp;data.</span></dd></dl>
 
-<dl><dt><a name="PriceExtended-get_interval"><strong>get_interval</strong></a>(self)</dt><dd><span class="code">retrieved&nbsp;the&nbsp;delta&nbsp;of&nbsp;APIservice&nbsp;call<br>
-Retrieve&nbsp;the&nbsp;time&nbsp;interval&nbsp;of&nbsp;the&nbsp;data&nbsp;retrieved&nbsp;from&nbsp;the&nbsp;API.<br>
+<dl><dt><a name="PriceExtended-get_interval"><strong>get_interval</strong></a>(self)</dt><dd><span class="code">Retrieve&nbsp;the&nbsp;time&nbsp;interval&nbsp;of&nbsp;the&nbsp;data&nbsp;retrieved&nbsp;from&nbsp;the&nbsp;API.<br>
 &nbsp;<br>
 Returns:<br>
-str:&nbsp;The&nbsp;time&nbsp;interval&nbsp;(e.g.,&nbsp;"60min").</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;time&nbsp;interval&nbsp;(e.g.,&nbsp;"60min").</span></dd></dl>
 
-<dl><dt><a name="PriceExtended-get_json"><strong>get_json</strong></a>(self)</dt><dd><span class="code">helper&nbsp;method&nbsp;to&nbsp;review&nbsp;json&nbsp;data&nbsp;retrieved&nbsp;and&nbsp;for&nbsp;debugging</span></dd></dl>
+<dl><dt><a name="PriceExtended-get_json"><strong>get_json</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;JSON&nbsp;data&nbsp;in&nbsp;a&nbsp;pretty-printed&nbsp;format&nbsp;for&nbsp;debugging.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;JSON&nbsp;data&nbsp;as&nbsp;a&nbsp;well-formatted&nbsp;string.</span></dd></dl>
 
 <dl><dt><a name="PriceExtended-get_last_refreshed"><strong>get_last_refreshed</strong></a>(self)</dt><dd><span class="code">Retrieve&nbsp;the&nbsp;date&nbsp;and&nbsp;time&nbsp;when&nbsp;the&nbsp;service&nbsp;was&nbsp;last&nbsp;consulted.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;date&nbsp;and&nbsp;time&nbsp;(e.g.,&nbsp;"2023-11-03&nbsp;15:00:00").</span></dd></dl>
 
-<dl><dt><a name="PriceExtended-get_metadata"><strong>get_metadata</strong></a>(self)</dt><dd><span class="code">retrieve&nbsp;metadata&nbsp;from&nbsp;Json<br>
+<dl><dt><a name="PriceExtended-get_metadata"><strong>get_metadata</strong></a>(self)</dt><dd><span class="code">Retrieve&nbsp;metadata&nbsp;information&nbsp;from&nbsp;the&nbsp;JSON&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dict:&nbsp;A&nbsp;dictionary&nbsp;containing&nbsp;metadata&nbsp;information&nbsp;from&nbsp;the&nbsp;JSON&nbsp;data.<br>
+&nbsp;<br>
 The&nbsp;get_metadata&nbsp;method&nbsp;extracts&nbsp;the&nbsp;"metaData"&nbsp;section&nbsp;from&nbsp;the&nbsp;JSON&nbsp;response,<br>
 which&nbsp;contains&nbsp;information&nbsp;about&nbsp;the&nbsp;stock&nbsp;data.&nbsp;This&nbsp;"metadata"&nbsp;section&nbsp;is&nbsp;a&nbsp;dictionary<br>
 within&nbsp;the&nbsp;larger&nbsp;JSON&nbsp;<a href="builtins.html#object">object</a>.&nbsp;metadata&nbsp;=&nbsp;price_instance.<a href="#PriceExtended-get_metadata">get_metadata</a>()&nbsp;then<br>
@@ -357,7 +454,12 @@ Methods inherited from <a href="AlphavantagePrice.html#Price">Price</a>:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;closing&nbsp;price,&nbsp;or&nbsp;None&nbsp;if&nbsp;not&nbsp;found.</span></dd></dl>
 
-<dl><dt><a name="StockDataAnalyzer-download_data"><strong>download_data</strong></a>(self)</dt><dd><span class="code">connect&nbsp;with&nbsp;Apivantage&nbsp;service&nbsp;and&nbsp;retrieve&nbsp;Json&nbsp;for&nbsp;given&nbsp;ticker&nbsp;symbol<br>
+<dl><dt><a name="StockDataAnalyzer-download_data"><strong>download_data</strong></a>(self)</dt><dd><span class="code">Download&nbsp;data&nbsp;from&nbsp;Alphavantage&nbsp;API&nbsp;and&nbsp;parse&nbsp;it&nbsp;into&nbsp;JSON&nbsp;format.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dict:&nbsp;A&nbsp;dictionary&nbsp;containing&nbsp;the&nbsp;JSON&nbsp;data&nbsp;retrieved&nbsp;from&nbsp;the&nbsp;Alphavantage&nbsp;API.<br>
+&nbsp;<br>
+connects&nbsp;with&nbsp;Apivantage&nbsp;service&nbsp;and&nbsp;retrieves&nbsp;json&nbsp;data&nbsp;for&nbsp;given&nbsp;ticker&nbsp;symbol<br>
 The&nbsp;download_data&nbsp;method&nbsp;sends&nbsp;an&nbsp;HTTP&nbsp;GET&nbsp;request&nbsp;to&nbsp;the&nbsp;Alpha&nbsp;Vantage&nbsp;API&nbsp;to&nbsp;retrieve&nbsp;intraday&nbsp;price&nbsp;data<br>
 for&nbsp;the&nbsp;specified&nbsp;stock&nbsp;symbol.&nbsp;It&nbsp;specifies&nbsp;various&nbsp;parameters&nbsp;such&nbsp;as&nbsp;the&nbsp;symbol,&nbsp;time&nbsp;interval,<br>
 extended&nbsp;hours,&nbsp;and&nbsp;API&nbsp;key.&nbsp;The&nbsp;response&nbsp;from&nbsp;the&nbsp;API&nbsp;is&nbsp;expected&nbsp;to&nbsp;be&nbsp;in&nbsp;JSON&nbsp;format,<br>
@@ -377,20 +479,26 @@ Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;dict&nbsp;or&nbsp;None:&nbsp;Data&nbsp;for&nbsp;the&nbsp;specified&nbsp;timestamp&nbsp;returned&nbsp;as&nbsp;dict&nbsp;<a href="builtins.html#object">object</a>,<br>
 &nbsp;&nbsp;&nbsp;or&nbsp;None&nbsp;if&nbsp;the&nbsp;timestamp&nbsp;is&nbsp;not&nbsp;found&nbsp;in&nbsp;the&nbsp;data.</span></dd></dl>
 
-<dl><dt><a name="StockDataAnalyzer-get_interval"><strong>get_interval</strong></a>(self)</dt><dd><span class="code">retrieved&nbsp;the&nbsp;delta&nbsp;of&nbsp;APIservice&nbsp;call<br>
-Retrieve&nbsp;the&nbsp;time&nbsp;interval&nbsp;of&nbsp;the&nbsp;data&nbsp;retrieved&nbsp;from&nbsp;the&nbsp;API.<br>
+<dl><dt><a name="StockDataAnalyzer-get_interval"><strong>get_interval</strong></a>(self)</dt><dd><span class="code">Retrieve&nbsp;the&nbsp;time&nbsp;interval&nbsp;of&nbsp;the&nbsp;data&nbsp;retrieved&nbsp;from&nbsp;the&nbsp;API.<br>
 &nbsp;<br>
 Returns:<br>
-str:&nbsp;The&nbsp;time&nbsp;interval&nbsp;(e.g.,&nbsp;"60min").</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;time&nbsp;interval&nbsp;(e.g.,&nbsp;"60min").</span></dd></dl>
 
-<dl><dt><a name="StockDataAnalyzer-get_json"><strong>get_json</strong></a>(self)</dt><dd><span class="code">helper&nbsp;method&nbsp;to&nbsp;review&nbsp;json&nbsp;data&nbsp;retrieved&nbsp;and&nbsp;for&nbsp;debugging</span></dd></dl>
+<dl><dt><a name="StockDataAnalyzer-get_json"><strong>get_json</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;JSON&nbsp;data&nbsp;in&nbsp;a&nbsp;pretty-printed&nbsp;format&nbsp;for&nbsp;debugging.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;JSON&nbsp;data&nbsp;as&nbsp;a&nbsp;well-formatted&nbsp;string.</span></dd></dl>
 
 <dl><dt><a name="StockDataAnalyzer-get_last_refreshed"><strong>get_last_refreshed</strong></a>(self)</dt><dd><span class="code">Retrieve&nbsp;the&nbsp;date&nbsp;and&nbsp;time&nbsp;when&nbsp;the&nbsp;service&nbsp;was&nbsp;last&nbsp;consulted.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;date&nbsp;and&nbsp;time&nbsp;(e.g.,&nbsp;"2023-11-03&nbsp;15:00:00").</span></dd></dl>
 
-<dl><dt><a name="StockDataAnalyzer-get_metadata"><strong>get_metadata</strong></a>(self)</dt><dd><span class="code">retrieve&nbsp;metadata&nbsp;from&nbsp;Json<br>
+<dl><dt><a name="StockDataAnalyzer-get_metadata"><strong>get_metadata</strong></a>(self)</dt><dd><span class="code">Retrieve&nbsp;metadata&nbsp;information&nbsp;from&nbsp;the&nbsp;JSON&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dict:&nbsp;A&nbsp;dictionary&nbsp;containing&nbsp;metadata&nbsp;information&nbsp;from&nbsp;the&nbsp;JSON&nbsp;data.<br>
+&nbsp;<br>
 The&nbsp;get_metadata&nbsp;method&nbsp;extracts&nbsp;the&nbsp;"metaData"&nbsp;section&nbsp;from&nbsp;the&nbsp;JSON&nbsp;response,<br>
 which&nbsp;contains&nbsp;information&nbsp;about&nbsp;the&nbsp;stock&nbsp;data.&nbsp;This&nbsp;"metadata"&nbsp;section&nbsp;is&nbsp;a&nbsp;dictionary<br>
 within&nbsp;the&nbsp;larger&nbsp;JSON&nbsp;<a href="builtins.html#object">object</a>.&nbsp;metadata&nbsp;=&nbsp;price_instance.<a href="#StockDataAnalyzer-get_metadata">get_metadata</a>()&nbsp;then<br>
@@ -420,14 +528,6 @@ Returns:<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;opening&nbsp;price,&nbsp;or&nbsp;None&nbsp;if&nbsp;not&nbsp;found.</span></dd></dl>
-
-<dl><dt><a name="StockDataAnalyzer-series"><strong>series</strong></a>(self, parameter)</dt><dd><span class="code">Retrieve&nbsp;historical&nbsp;series&nbsp;data&nbsp;for&nbsp;a&nbsp;given&nbsp;attribute&nbsp;(parameter).<br>
-&nbsp;<br>
-Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;parameter&nbsp;(str):&nbsp;The&nbsp;attribute&nbsp;(e.g.,&nbsp;"1.&nbsp;open",&nbsp;"2.&nbsp;high")&nbsp;for&nbsp;which&nbsp;to&nbsp;retrieve&nbsp;historical&nbsp;data.<br>
-&nbsp;<br>
-Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;list:&nbsp;A&nbsp;list&nbsp;of&nbsp;historical&nbsp;data&nbsp;values&nbsp;for&nbsp;the&nbsp;specified&nbsp;attribute,&nbsp;or&nbsp;an&nbsp;empty&nbsp;list&nbsp;if&nbsp;no&nbsp;data&nbsp;is&nbsp;found.</span></dd></dl>
 
 <dl><dt><a name="StockDataAnalyzer-volume"><strong>volume</strong></a>(self)</dt><dd><span class="code">Retrieve&nbsp;the&nbsp;volume&nbsp;data&nbsp;for&nbsp;the&nbsp;last&nbsp;refreshed&nbsp;timestamp.<br>
 &nbsp;<br>

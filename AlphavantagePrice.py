@@ -390,6 +390,7 @@ class StockDataAnalyzer(Price):
         today = datetime.datetime.today().date()
         unique_days = set()
 
+        #get unique timestamps ignore today's date closing price not settled yet
         for timestamp in timestamps:
             date = timestamp.split()[0]
             date = datetime.datetime.strptime(date, "%Y-%m-%d").date()
@@ -407,7 +408,7 @@ class StockDataAnalyzer(Price):
                 daily_stats = self.get_data_for_timestamp(timestamp)
                 if daily_stats:
                     total_closing_price += float(daily_stats["4. close"])
-                    unique_days.remove(date)
+                    unique_days.remove(date)  # the latest closing price for a given date
 
         if total_days > 0:
             return total_days, total_closing_price / total_days

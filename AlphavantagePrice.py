@@ -95,7 +95,7 @@ class Price():
 
         """
 
-        extended_hours_str = 'true' if self.extended_hours else 'false'  # give me pre&post opening data as well
+        extended_hours_str = 'true' if self.extended_hours else 'false'
         params = {
             'function': 'TIME_SERIES_INTRADAY',
             'symbol': self.symbol,
@@ -107,16 +107,16 @@ class Price():
         base_url = 'https://www.alphavantage.co/query'
         try:
             response = requests.get(base_url, params=params)
-            response.raise_for_status()  # Check for HTTP errors
+            response.raise_for_status()  # HTTP errors?
             json_data = json.loads(response.text)
             if "Meta Data" not in json_data:
-                raise NoDataException("No valid data found in the response.")
+                raise NoDataException(f"No valid data found in the response for ticket symbol: {self.symbol}")
             return json_data
         except requests.exceptions.RequestException as e:
             raise SystemExit(e)
 
     def get_metadata(self):
-        """Retrieve metadata information from the JSON data.
+        """Retrieve metadata information from the JSON data as dict obj.
 
         Returns:
             dict: A dictionary containing metadata information from the JSON data.
@@ -168,8 +168,7 @@ class Price():
             str: The date and time (e.g., "2023-11-03 15:00:00").
         """
 
-        key_value = self.get_metadata()
-        return key_value["3. Last Refreshed"]
+        return self.get_metadata().get("3. Last Refreshed")
 
     def get_data_for_last_refreshed(self):
         """Get data from the time series for the last refreshed timestamp.
@@ -248,7 +247,7 @@ class Price():
         return None
 
     def get_timestamps(self):
-        """Get timestamps from the time series data.
+        """Get all timestamps from the time series data.
 
         Returns:
             list: A list of timestamps from the time series data, or an empty list if no data is found.
@@ -257,6 +256,7 @@ class Price():
         time_series = self.json_data.get("Time Series (" + self.interval_mins + ")")
         if time_series:
             timestamps = [timestamp for timestamp in time_series.keys()]
+            print(timestamps)
             return timestamps
         return []
 
@@ -272,6 +272,8 @@ class Price():
          """
 
         time_series = self.json_data.get("Time Series (" + self.interval_mins + ")")
+        # for key, value in time_series.items():
+        #     print(f'{key} - {value}')
         if time_series:
             return time_series.get(timestamp)
         return None
@@ -288,6 +290,26 @@ class PriceExtended(Price):
         """
 
         super().__init__(symbol, interval, api_key)
+
+
+    def series(self, parameter):
+        """Retrieve historical series data for a given attribute (parameter).
+
+        Args:
+            parameter (str): The attribute for which to retrieve historical data (e.g., '1. open', '4. close').
+
+        Returns:
+            list: A list of historical data values for the specified attribute, or an empty list if no data is found.
+        """
+        time_series = self.json_data.get("Time Series (" + self.interval_mins + ")")
+        if time_series:
+            series_list_values = []
+            for timestamp, data in time_series.items():
+                series_list_values.append(data.get(parameter, None))
+            return series_list_values
+        return []
+
+
 
     def get_ticker_symbol_info(self):
         """Get detailed price information.
@@ -320,25 +342,10 @@ class PriceExtended(Price):
 
         return info
 
-    def series(self, parameter):
-        """Retrieve historical series data for a given attribute (parameter).
-
-        Args:
-            parameter (str): The attribute for which to retrieve historical data (e.g., '1. open', '4. close').
-
-        Returns:
-            list: A list of historical data values for the specified attribute, or an empty list if no data is found.
-        """
-        time_series = self.json_data.get("Time Series (" + self.interval_mins + ")")
-        if time_series:
-            series_list_values = []
-            for timestamp, data in time_series.items():
-                series_list_values.append(data.get(parameter, None))
-            return series_list_values
-        return []
 
 
-class StockDataAnalyzer(Price):
+
+    class StockDataAnalyzer(Price):
     def __init__(self, symbol, interval, api_key):
         """Initialize a StockDataAnalyzer instance.
 
@@ -370,7 +377,7 @@ class StockDataAnalyzer(Price):
                 daily_volumes[date] = volume
 
         max_volume = max(daily_volumes.values())
-        # list comprehension to get dates of matching max volume
+        # list comprehension to get dates of matching max volume i.e. catch tie-breakers
         max_volume_dates = [date for date, volume in daily_volumes.items() if volume == max_volume]
 
         return max_volume_dates, max_volume
@@ -390,7 +397,6 @@ class StockDataAnalyzer(Price):
         today = datetime.datetime.today().date()
         unique_days = set()
 
-        #get unique timestamps ignore today's date closing price not settled yet
         for timestamp in timestamps:
             date = timestamp.split()[0]
             date = datetime.datetime.strptime(date, "%Y-%m-%d").date()
@@ -408,7 +414,7 @@ class StockDataAnalyzer(Price):
                 daily_stats = self.get_data_for_timestamp(timestamp)
                 if daily_stats:
                     total_closing_price += float(daily_stats["4. close"])
-                    unique_days.remove(date)  # the latest closing price for a given date
+                    unique_days.remove(date)
 
         if total_days > 0:
             return total_days, total_closing_price / total_days
@@ -427,13 +433,21 @@ class StockDataAnalyzer(Price):
 
         for timestamp in timestamps:
             date = timestamp.split()[0]
-            data = self.get_data_for_timestamp(timestamp)
-            closing_price = data.get("4. close")
 
-            # Capture the latest closing price for each unique date
-            closing_prices_by_date[date] = float(closing_price)
+            if date in closing_prices_by_date:
+                existing_timestamp = closing_prices_by_date[date]
+                if timestamp > existing_timestamp:
+                    closing_prices_by_date[date] = timestamp
+            else:
+                closing_prices_by_date[date] = timestamp
 
-        return closing_prices_by_date
+        latest_closing_prices = {}
+        for date, latest_timestamp in closing_prices_by_date.items():
+            data = self.get_data_for_timestamp(latest_timestamp)
+            closing_price = float(data.get("4. close"))
+            latest_closing_prices[date] = closing_price
+
+        return latest_closing_prices
 
     def plot_latest_closing_prices(self):
         r"""Create a plot of the latest closing prices.
